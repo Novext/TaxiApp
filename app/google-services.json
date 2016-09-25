@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "5628285713",
+    "project_id": "taxiapp-144504"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5628285713:android:63abe35442228016",
+        "android_client_info": {
+          "package_name": "com.novext.taxiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5628285713-fg6n97a1pq4ltn09h55fjchq3g571q58.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.novext.taxiapp",
+            "certificate_hash": "A271642807F7BC71951735C8E0AB654EC2F247CC"
+          }
+        },
+        {
+          "client_id": "5628285713-d4igvanfp7vb9k9okn48rq6sbk1cct0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC20tm9lAp6Tv5llm_OSF95xlAkkxm_Cfc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

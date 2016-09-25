@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TaxiApp</string>
+
+    <!--strings de profile activity-->
+
+    <string name="nameProfile">Nombre</string>
+    <string name="nameProfileDefault">name</string>
+    <string name="emailProfile">Email</string>
+    <string name="emailProfileDefault">email</string>
+    <string name="facebook_app_id">159935151122132</string>
+</resources>
