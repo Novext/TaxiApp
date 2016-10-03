@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_stop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.novext.taxiapp.StopActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:background="@color/cardview_dark_background"
+        android:layout_height="wrap_content">
+
+        <fragment
+            android:id="@+id/mapStop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.google.android.gms.maps.MapFragment"
+            xmlns:android="http://schemas.android.com/apk/res/android" />
+
+    </RelativeLayout>
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+
+        android:layout_marginStart="0dp">
+
+        <Button
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="#ffff"
+            android:text="TOMADO"
+            android:background="#0088aa"
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <Button
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="#ffff"
+            android:text="CANCELAR PARADA"
+            android:background="#9c9c9c"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/button2" />
+
+    </LinearLayout>
+
+</LinearLayout>

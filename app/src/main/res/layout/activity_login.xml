@@ -1,32 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context="com.novext.taxiapp.LoginActivity">
 
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:gravity="center" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:ems="10"
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:foregroundGravity="center"
-        android:layout_marginRight="30dp"
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
-        android:layout_marginLeft="30dp"/>
+        android:hint="Email"
+        android:paddingLeft="35dp"
+        android:paddingStart="35dp"
+        android:background="@drawable/edit_login_selector"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/edtEmail" />
 
-</LinearLayout>
+    <EditText
+        android:hint="Password"
+        android:paddingLeft="35dp"
+        android:paddingStart="35dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:background="@drawable/edit_login_selector"
+        android:layout_below="@+id/edtEmail"
+        android:layout_marginTop="15dp"
+        android:id="@+id/edtPassword" />
+
+    <Button
+
+        android:text="Iniciar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#0088aa"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        android:onClick="sendLogin"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnLogin" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
