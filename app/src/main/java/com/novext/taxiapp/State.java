@@ -30,4 +30,13 @@ public class State {
     public static String getUserId(){
         return prefs.getString("userId","");
     }
+
+    public static String getStopId(){
+        return prefs.getString("stopId","");
+    }
+
+    public static void setStopId(String stopId){
+        edit.putString("stopId",stopId);
+        edit.commit();
+    }
 }
