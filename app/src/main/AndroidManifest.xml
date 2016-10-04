@@ -30,25 +30,31 @@
 
         <activity android:name=".LoginActivity"
             android:theme="@style/AppNoTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
             android:name=".MainActivity">
+
+
+
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".MapActivity">
+        <activity android:name=".MapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+
+
+        </activity>
+        <activity android:name=".StopActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StopActivity"></activity>
 
     </application>
 
