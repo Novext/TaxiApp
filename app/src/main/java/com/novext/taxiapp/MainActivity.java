@@ -135,13 +135,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+    @Override
     protected void onStart() {
         mGoogleApiClient.connect();
         super.onStart();
     }
-
+    @Override
     protected void onStop() {
-        mGoogleApiClient.disconnect();
+        if(mGoogleApiClient.isConnected()) mGoogleApiClient.disconnect();
         super.onStop();
     }
 

@@ -40,6 +40,12 @@ public class LoginActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (State.logged()) {
+
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
         setContentView(R.layout.activity_login);
 
         editEmail    = (EditText) findViewById(R.id.edtEmail);
@@ -113,18 +119,13 @@ public class LoginActivity extends AppCompatActivity{
                     if (response.code() == 200){
                         try {
                             JSONObject data = new JSONObject(response.body().string());
-                            Log.d("email",data.getString("email"));
-                            Log.d("password",data.getString("password"));
-
 
                             State.setUserId(data.getString("taxiId"));
                             State.setLogin(true);
                             Toast.makeText(LoginActivity.this, "SE ESTA LOGEANDO d:", Toast.LENGTH_SHORT).show();
                             Intent intent  = new Intent (LoginActivity.this,MainActivity.class );
                             startActivity(intent);
-                            
-                            
-
+                            finish();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
@@ -132,6 +133,8 @@ public class LoginActivity extends AppCompatActivity{
                         }
 
                     }
+                }else{
+                    Toast.makeText(LoginActivity.this, "Try again please ...", Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute(null,null,null);

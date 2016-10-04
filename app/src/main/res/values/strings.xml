@@ -20,10 +20,10 @@
 
 
     <string-array name="time_array">
-        <item>5 minutes</item>
-        <item>4 minutes</item>
-        <item>3 minutes</item>
-        <item>2 minutes</item>
-        <item>1 minutes</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
     </string-array>
 </resources>

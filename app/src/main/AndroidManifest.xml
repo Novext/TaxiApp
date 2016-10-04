@@ -41,12 +41,10 @@
             android:name=".MainActivity">
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".MapActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MapActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".StopActivity"></activity>
 
