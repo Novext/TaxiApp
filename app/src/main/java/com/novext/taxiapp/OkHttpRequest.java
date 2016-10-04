@@ -16,8 +16,7 @@ import okhttp3.Response;
 
 public class OkHttpRequest {
 
-    public static final MediaType JSON
-            = MediaType.parse("application/json; charset=utf-8");
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     RequestBody body;
     Request request;
@@ -44,6 +43,9 @@ public class OkHttpRequest {
     }
 
     public Response post(String values,String path){
+        Log.d("data",values);
+        Log.d("URL",path);
+
 
         String uri = url + path;
 

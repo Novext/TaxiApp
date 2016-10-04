@@ -40,8 +40,11 @@
             android:name=".MainActivity">
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".MapActivity" />
+        <activity android:name=".MapActivity">
+
+        </activity>
         <activity android:name=".StopActivity"></activity>
+
     </application>
 
 </manifest>

@@ -9,16 +9,36 @@
     tools:context="com.novext.taxiapp.MapActivity">
 
     <LinearLayout
+
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp">
-
-        <fragment
-            android:id="@+id/mapParade"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="com.google.android.gms.maps.MapFragment"
-            xmlns:android="http://schemas.android.com/apk/res/android" />
+            android:layout_height="match_parent">
+            <fragment
+                android:id="@+id/mapParade"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.google.android.gms.maps.MapFragment"
+                xmlns:android="http://schemas.android.com/apk/res/android" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/imgMarker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:src="@mipmap/marker"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawable="@color/transparent"/>
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -46,17 +66,15 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:textSize='16sp'
-                    android:textStyle="italic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cantidad"/>
-                <Spinner
-                    android:id="@+id/spinnerCount"
-                    android:layout_marginTop='15dp'
+                <EditText
+                    android:id="@+id/edtAddress"
+                    android:hint="Direccion"
+                    android:textSize="15sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:popupTheme="@android:style/ThemeOverlay.Material.Light"
-                    android:text="MUNDO"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
         </LinearLayout>
@@ -73,8 +91,6 @@
             <TextView
                 android:textSize='16sp'
                 android:text="Tiempo de espera"
-                android:textStyle="italic"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <Spinner
@@ -87,13 +103,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
 
             <Button
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
                 android:id="@+id/btnCancel"
                 android:textStyle="bold"
                 android:textColor="#ffffff"
