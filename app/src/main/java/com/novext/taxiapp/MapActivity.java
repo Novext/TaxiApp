@@ -72,9 +72,9 @@ public class MapActivity extends AppCompatActivity implements  OnCameraChangeLis
 
             public void onClick(View view) {
 
+            }
 
         });
-        }
     }
     @Override
     public void onCameraChange(CameraPosition cameraPosition) {
