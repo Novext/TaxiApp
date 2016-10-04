@@ -110,7 +110,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/btnCancel"
+                android:id="@+id/btnStop"
                 android:textStyle="bold"
                 android:textColor="#ffffff"
                 android:background="#0088aa"

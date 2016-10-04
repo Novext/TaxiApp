@@ -2,6 +2,7 @@ package com.novext.taxiapp;
 
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -9,9 +10,12 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -50,7 +54,7 @@ public class MapActivity extends AppCompatActivity implements  OnCameraChangeLis
                 .add(R.id.mapParade, mapFragment)
                 .commit();
         mapFragment.getMapAsync(this);
-        okHttpRequest = App.postInstanceOkHttpRequest();
+        okHttpRequest = App.getInstanceOkHttpRequest();
 
         Spinner spinnerTime = (Spinner) findViewById(R.id.spinnerTime);
         ArrayAdapter<CharSequence> adapter_Time = ArrayAdapter.createFromResource(this, R.array.time_array, android.R.layout.simple_spinner_item);
@@ -61,6 +65,16 @@ public class MapActivity extends AppCompatActivity implements  OnCameraChangeLis
 
         minutes = spinnerTime.getSelectedItem().toString();
         description = edtDescription.getText().toString();
+
+        Button btnStop  = (Button) findViewById(R.id.btnStop);
+
+        btnStop.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+
+
+        });
+        }
     }
     @Override
     public void onCameraChange(CameraPosition cameraPosition) {
@@ -78,6 +92,14 @@ public class MapActivity extends AppCompatActivity implements  OnCameraChangeLis
                                    final String minutes,
                                    final String description){
 
+
+        final ProgressDialog progress = new ProgressDialog(this);
+        progress.setTitle("Creating stop");
+        progress.setMessage("Wait a second ...");
+        progress.setIndeterminate(true);
+        progress.setCancelable(false);
+        progress.show();
+
         new AsyncTask<String,Void, Response>(){
 
             @Override
@@ -88,6 +110,7 @@ public class MapActivity extends AppCompatActivity implements  OnCameraChangeLis
                     data.put("longitude",longitude);
                     data.put("description",description);
                     data.put("minutes",minutes);
+                    data.put("taxiId",State.getUserId());
 
 
                     Log.d("TODOS LOS DATOS", String.valueOf(data));
@@ -97,6 +120,7 @@ public class MapActivity extends AppCompatActivity implements  OnCameraChangeLis
                 return okHttpRequest.post(String.valueOf(data),"/stops");
             }
             protected  void onPostExecute(Response response){
+                progress.dismiss();
                 if (response!=null){
                     if (response.code()==200){
                         try{

@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         Intent intent = new Intent(MainActivity.this, MapActivity.class);
         startActivity(intent);
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 

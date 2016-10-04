@@ -26,7 +26,5 @@ public class App extends Application {
     public static OkHttpRequest getInstanceOkHttpRequest(){
         return okHttpRequest;
     }
-    public static OkHttpRequest postInstanceOkHttpRequest(){
-        return okHttpRequest;
-    }
+
 }

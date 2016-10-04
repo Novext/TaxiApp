@@ -46,9 +46,8 @@ public class LoginActivity extends AppCompatActivity{
         editPassword = (EditText) findViewById(R.id.edtPassword);
         btnLogin     = (Button) findViewById(R.id.btnLogin);
 
-        okHttpRequest = App.postInstanceOkHttpRequest();
-        emailSend = editEmail.getText().toString();
-        passwordSend = editPassword.getText().toString();
+        okHttpRequest = App.getInstanceOkHttpRequest();
+
 
 
 
@@ -58,6 +57,9 @@ public class LoginActivity extends AppCompatActivity{
             public void onClick(View view) {
 
                 if (  ( !editEmail.getText().toString().equals("")) && ( !editPassword.getText().toString().equals("")) ){
+                    emailSend = editEmail.getText().toString();
+                    passwordSend = editPassword.getText().toString();
+
                     SignIn(emailSend,passwordSend);
                 }
                 else if ( ( !editEmail.getText().toString().equals("")) ){
@@ -78,6 +80,16 @@ public class LoginActivity extends AppCompatActivity{
 
 
     public void SignIn(final String emailSend, final String passwordSend){
+
+
+        final ProgressDialog progress = new ProgressDialog(this);
+        progress.setTitle("Login");
+        progress.setMessage("Wait a second ...");
+        progress.setIndeterminate(true);
+        progress.setCancelable(false);
+        progress.show();
+
+
         new AsyncTask<String,Void, Response>(){
 
             @Override
@@ -92,20 +104,26 @@ public class LoginActivity extends AppCompatActivity{
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                return okHttpRequest.post(String.valueOf(data),"/taxi/login");
+                return okHttpRequest.post(String.valueOf(data),"taxis/login");
             }
 
             protected void onPostExecute(Response response){
+                progress.dismiss();
                 if (response!=null){
                     if (response.code() == 200){
                         try {
                             JSONObject data = new JSONObject(response.body().string());
                             Log.d("email",data.getString("email"));
                             Log.d("password",data.getString("password"));
-                            Log.d("DATA COMPLETO", String.valueOf(data));
 
+
+                            State.setUserId(data.getString("taxiId"));
+                            State.setLogin(true);
+                            Toast.makeText(LoginActivity.this, "SE ESTA LOGEANDO d:", Toast.LENGTH_SHORT).show();
                             Intent intent  = new Intent (LoginActivity.this,MainActivity.class );
                             startActivity(intent);
+                            
+                            
 
                         } catch (JSONException e) {
                             e.printStackTrace();
