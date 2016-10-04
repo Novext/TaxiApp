@@ -3,6 +3,7 @@ package com.novext.taxiapp;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
@@ -45,7 +46,12 @@ import okhttp3.Response;
 
 import static com.google.android.gms.maps.GoogleMap.*;
 
-public class MapActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,LocationListener, OnCameraChangeListener, OnMapReadyCallback, OnMarkerDragListener, GoogleApiClient.ConnectionCallbacks {
+public class MapActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
+                                                                LocationListener,
+                                                                OnCameraChangeListener,
+                                                                OnMapReadyCallback,
+                                                                OnMarkerDragListener,
+                                                                GoogleApiClient.ConnectionCallbacks {
 
     LatLng centerOfMap;
     Marker myLocationMarker;
@@ -147,9 +153,10 @@ public class MapActivity extends AppCompatActivity implements GoogleApiClient.On
                 if (response != null) {
                     if (response.code() == 200) {
                         try {
-                            JSONObject data = new JSONObject(response.body().string());
 
-                            Log.d("RETURN ID", data.getJSONObject("taxi_ID").getString(("id_")));
+                            Intent intent = new Intent(MapActivity.this, StopActivity.class);
+                            startActivity(intent);
+
                         } catch (Exception e) {
 
                         }
